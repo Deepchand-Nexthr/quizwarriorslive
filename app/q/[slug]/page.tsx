@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { quizData } from "@/data/countries/india-001";
 import Link from "next/link";
 import Confetti from "react-confetti";
+import { quizData } from "@/data/quizzes/staffing-001";
 
 export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -11,26 +11,41 @@ export default function QuizPage() {
   const [showFact, setShowFact] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [isCorrect, setIsCorrect] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(20);
+  const [timeLeft, setTimeLeft] = useState(quizData.timerPerQuestion);
   const [quizComplete, setQuizComplete] = useState(false);
+  const [questions, setQuestions] = useState(() =>
+  [...quizData.questions]
+    .sort(() => Math.random() - 0.5)
+    .slice(0, quizData.questionsPerAttempt)
+);
 
   const correctSound = useRef<HTMLAudioElement | null>(null);
   const wrongSound = useRef<HTMLAudioElement | null>(null);
   const victorySound = useRef<HTMLAudioElement | null>(null);
+const tauntSound = useRef<HTMLAudioElement | null>(null);
 
-  const question = quizData.questions[currentQuestion];
+ const question = questions[currentQuestion];
+
+if (!question) {
+  return null;
+}
 
   useEffect(() => {
     correctSound.current = new Audio("/sounds/correct.mp3");
     wrongSound.current = new Audio("/sounds/wrong.mp3");
     victorySound.current = new Audio("/sounds/victory.mp3");
+    tauntSound.current = new Audio("/sounds/taunt.mp3");
   }, []);
 
   useEffect(() => {
-    if (quizComplete) {
-      victorySound.current?.play();
-    }
-  }, [quizComplete]);
+  if (!quizComplete) return;
+
+  if (score >= Math.ceil(quizData.questionsPerAttempt / 2)) {
+    victorySound.current?.play();
+  } else {
+    tauntSound.current?.play();
+  }
+}, [quizComplete, score]);
 
   useEffect(() => {
     if (showFact || quizComplete) return;
@@ -53,7 +68,7 @@ export default function QuizPage() {
   const handleAnswer = (selectedOption: string) => {
     if (showFact) return;
 
-    const correct = selectedOption === question.correctAnswer;
+    const correct = selectedOption === question.options[question.correct];
 
     setIsCorrect(correct);
 
@@ -73,21 +88,27 @@ export default function QuizPage() {
       setCurrentQuestion((prev) => prev + 1);
       setShowFact(false);
       setSelectedAnswer("");
-      setTimeLeft(20);
+      setTimeLeft(quizData.timerPerQuestion);
     } else {
       setQuizComplete(true);
     }
   };
 
-  const restartQuiz = () => {
-    setCurrentQuestion(0);
-    setScore(0);
-    setShowFact(false);
-    setSelectedAnswer("");
-    setIsCorrect(false);
-    setTimeLeft(20);
-    setQuizComplete(false);
-  };
+const restartQuiz = () => {
+  setQuestions(
+    [...quizData.questions]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, quizData.questionsPerAttempt)
+  );
+
+  setCurrentQuestion(0);
+  setScore(0);
+  setShowFact(false);
+  setSelectedAnswer("");
+  setIsCorrect(false);
+  setTimeLeft(quizData.timerPerQuestion);
+  setQuizComplete(false);
+};
 
   if (quizComplete) {
     const accuracy = Math.round((score / quizData.questionsPerAttempt) * 100);
@@ -217,7 +238,7 @@ export default function QuizPage() {
           <div className="flex items-center justify-between mb-6">
             <div className="bg-yellow-500/10 border border-yellow-500/30 px-4 py-2 rounded-full">
               <span className="text-yellow-400 text-xs md:text-sm font-black tracking-wider">
-                🇮🇳 INDIA • SEASON 1
+                ⚔️ STAFFING WARRIOR • SEASON 1
               </span>
             </div>
 
@@ -229,7 +250,7 @@ export default function QuizPage() {
           </div>
 
           <h1 className="text-2xl md:text-4xl font-black leading-tight mb-8">
-            {question.question}
+            {question.text}
           </h1>
 
           <div className="space-y-3">
@@ -242,9 +263,10 @@ export default function QuizPage() {
                   font-semibold text-base md:text-lg active:scale-95 disabled:cursor-not-allowed
                   ${
                     showFact
-                      ? option === question.correctAnswer
+                      ? option === question.options[question.correct]
                         ? "bg-green-500/20 border-green-500 text-green-300"
-                        : option === selectedAnswer
+                        : selectedAnswer !== "⏱️ Time's Up" &&
+option === selectedAnswer
                         ? "bg-red-500/20 border-red-500 text-red-300"
                         : "bg-zinc-800/50 border-zinc-700 text-zinc-400"
                       : "bg-zinc-800/50 border-zinc-700 hover:border-yellow-500 hover:bg-zinc-700 hover:scale-[1.02]"
@@ -310,7 +332,7 @@ export default function QuizPage() {
 
             <div className="bg-zinc-800/50 rounded-xl p-4 mb-6">
               <p className="text-green-400 text-sm mb-2">Correct Answer</p>
-              <p className="font-bold text-white text-lg">{question.correctAnswer}</p>
+              <p className="font-bold text-white text-lg">{question.options[question.correct]}</p>
             </div>
 
             <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4 mb-6">
