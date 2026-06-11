@@ -1,4 +1,9 @@
-[
+export const quizData = {
+  slug: "salesforceadmin-001",
+  title: "Salesforce Admin Challenge",
+  questionsPerAttempt: 10,
+  timerPerQuestion: 20,
+  questions: [
   {
     "text": "An administrator needs to allow users to easily switch between the Sales and Service specific views in Salesforce, each containing different collections of objects and tabs. Which metadata component groups these tabs into a single visible workspace?",
     "options": [
@@ -5489,3 +5494,5 @@
     "fact": "Lightning Action buttons are managed in the Page Layout configuration; if they aren't in the 'Lightning Actions' area, they won't appear on the page."
   }
 ]
+
+};
