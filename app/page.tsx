@@ -120,12 +120,12 @@ export default function Home() {
 
                 {/* Main Headline - KNOWLEDGE IS WAR with responsive font */}
                 <div>
-                  <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[1.05] tracking-tighter">
+                  <div className="text-[clamp(3rem,7vw,6.5rem)] font-black leading-[1.05] tracking-tighter">
                     <span className="bg-gradient-to-r from-yellow-500 to-yellow-400 bg-clip-text text-transparent">
                       KNOWLEDGE
                     </span>
                   </div>
-                  <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[1.05] tracking-tighter mt-2">
+                  <div className="text-[clamp(3rem,7vw,6.5rem)] font-black leading-[1.05] tracking-tighter mt-2">
                     <span className="text-white">IS WAR.</span>
                   </div>
                 </div>
