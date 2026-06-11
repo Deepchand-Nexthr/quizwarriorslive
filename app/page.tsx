@@ -67,7 +67,21 @@ export default function Home() {
                       🔥 TODAY'S BATTLE
                     </span>
                   </div>
+<div className="mt-4 flex gap-3 flex-wrap">
+  <Link
+    href="/q/staffing-001"
+    className="px-4 py-2 bg-yellow-500 text-black rounded-full font-bold"
+  >
+    💼 Staffing
+  </Link>
 
+  <Link
+    href="/q/ramayan-001"
+    className="px-4 py-2 bg-orange-600 text-white rounded-full font-bold"
+  >
+    🏹 Ramayan
+  </Link>
+</div>
                  <div className="text-yellow-700 font-mono text-sm mb-2">
   SEASON 1 • STAFFING
 </div>
@@ -250,12 +264,14 @@ W2/C2C/1099 and become a Staffing Warrior.
 <div>🤝 RECRUITING</div>
                 </div>
                 <div className="text-yellow-500 font-black text-lg inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
-                  ENTER BATTLE →
+                  🏹 BEGIN CHALLENGE →
                 </div>
               </Link>
             </div>
           </div>
         </section>
+
+
 
         {/* Why QuizWarriors Section */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-black via-zinc-950 to-black">

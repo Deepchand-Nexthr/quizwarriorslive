@@ -3,9 +3,18 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Confetti from "react-confetti";
-import { quizData } from "@/data/careers/staffing/staffing-001";
+import { quizRegistry } from "@/data/registry";
+import { useParams } from "next/navigation";
 
 export default function QuizPage() {
+  const params = useParams();
+
+  const quizData = quizRegistry[params.slug as keyof typeof quizRegistry];
+
+  if (!quizData) {
+    throw new Error("Quiz not found");
+  }
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showFact, setShowFact] = useState(false);
@@ -14,21 +23,19 @@ export default function QuizPage() {
   const [timeLeft, setTimeLeft] = useState(quizData.timerPerQuestion);
   const [quizComplete, setQuizComplete] = useState(false);
   const [questions, setQuestions] = useState(() =>
-  [...quizData.questions]
-    .sort(() => Math.random() - 0.5)
-    .slice(0, quizData.questionsPerAttempt)
-);
+    [...quizData.questions]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, quizData.questionsPerAttempt)
+  );
 
   const correctSound = useRef<HTMLAudioElement | null>(null);
   const wrongSound = useRef<HTMLAudioElement | null>(null);
   const victorySound = useRef<HTMLAudioElement | null>(null);
-const tauntSound = useRef<HTMLAudioElement | null>(null);
+  const tauntSound = useRef<HTMLAudioElement | null>(null);
 
- const question = questions[currentQuestion];
+  const question = questions[currentQuestion];
 
-if (!question) {
-  return null;
-}
+ 
 
   useEffect(() => {
     correctSound.current = new Audio("/sounds/correct.mp3");
@@ -38,14 +45,14 @@ if (!question) {
   }, []);
 
   useEffect(() => {
-  if (!quizComplete) return;
+    if (!quizComplete) return;
 
-  if (score >= Math.ceil(quizData.questionsPerAttempt / 2)) {
-    victorySound.current?.play();
-  } else {
-    tauntSound.current?.play();
-  }
-}, [quizComplete, score]);
+    if (score >= Math.ceil(quizData.questionsPerAttempt / 2)) {
+      victorySound.current?.play();
+    } else {
+      tauntSound.current?.play();
+    }
+  }, [quizComplete, score]);
 
   useEffect(() => {
     if (showFact || quizComplete) return;
@@ -94,21 +101,21 @@ if (!question) {
     }
   };
 
-const restartQuiz = () => {
-  setQuestions(
-    [...quizData.questions]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, quizData.questionsPerAttempt)
-  );
+  const restartQuiz = () => {
+    setQuestions(
+      [...quizData.questions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, quizData.questionsPerAttempt)
+    );
 
-  setCurrentQuestion(0);
-  setScore(0);
-  setShowFact(false);
-  setSelectedAnswer("");
-  setIsCorrect(false);
-  setTimeLeft(quizData.timerPerQuestion);
-  setQuizComplete(false);
-};
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowFact(false);
+    setSelectedAnswer("");
+    setIsCorrect(false);
+    setTimeLeft(quizData.timerPerQuestion);
+    setQuizComplete(false);
+  };
 
   if (quizComplete) {
     const accuracy = Math.round((score / quizData.questionsPerAttempt) * 100);
@@ -127,17 +134,15 @@ const restartQuiz = () => {
     }
 
     return (
-      
-    <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
+      <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
+        {accuracy >= 80 && (
+          <Confetti
+            recycle={false}
+            numberOfPieces={accuracy >= 90 ? 400 : 200}
+          />
+        )}
 
-    {accuracy >= 80 && (
-      <Confetti
-        recycle={false}
-        numberOfPieces={accuracy >= 90 ? 400 : 200}
-      />
-    )}
-
-    <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/20 rounded-3xl p-10 max-w-lg w-full text-center shadow-2xl">
+        <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/20 rounded-3xl p-10 max-w-lg w-full text-center shadow-2xl">
           <h2 className="text-3xl font-black mb-6 bg-gradient-to-r from-yellow-500 to-yellow-400 bg-clip-text text-transparent">
             BATTLE COMPLETE
           </h2>
@@ -265,8 +270,7 @@ const restartQuiz = () => {
                     showFact
                       ? option === question.options[question.correct]
                         ? "bg-green-500/20 border-green-500 text-green-300"
-                        : selectedAnswer !== "⏱️ Time's Up" &&
-option === selectedAnswer
+                        : selectedAnswer !== "⏱️ Time's Up" && option === selectedAnswer
                         ? "bg-red-500/20 border-red-500 text-red-300"
                         : "bg-zinc-800/50 border-zinc-700 text-zinc-400"
                       : "bg-zinc-800/50 border-zinc-700 hover:border-yellow-500 hover:bg-zinc-700 hover:scale-[1.02]"
@@ -298,21 +302,21 @@ option === selectedAnswer
                   <span className="text-4xl">❌</span>
                 </div>
               )}
-             <h2 className="text-3xl font-black mb-2">
-  {selectedAnswer === "⏱️ Time's Up"
-    ? "TIME'S UP!"
-    : isCorrect
-    ? "VICTORY!"
-    : "DEFEAT!"}
-</h2>
+              <h2 className="text-3xl font-black mb-2">
+                {selectedAnswer === "⏱️ Time's Up"
+                  ? "TIME'S UP!"
+                  : isCorrect
+                  ? "VICTORY!"
+                  : "DEFEAT!"}
+              </h2>
 
-<p className="text-zinc-400">
-  {selectedAnswer === "⏱️ Time's Up"
-    ? "The clock defeated you..."
-    : isCorrect
-    ? "You struck with precision!"
-    : "The knowledge escaped you..."}
-</p>
+              <p className="text-zinc-400">
+                {selectedAnswer === "⏱️ Time's Up"
+                  ? "The clock defeated you..."
+                  : isCorrect
+                  ? "You struck with precision!"
+                  : "The knowledge escaped you..."}
+              </p>
             </div>
 
             <div className="bg-zinc-800/50 rounded-xl p-4 mb-4">
