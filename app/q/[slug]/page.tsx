@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { quizData } from "@/data/countries/india-001";
 import Link from "next/link";
+import Confetti from "react-confetti";
 
 export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -105,10 +106,17 @@ export default function QuizPage() {
     }
 
     return (
-      <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
-        <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/20 rounded-3xl p-10 max-w-lg w-full text-center shadow-2xl">
-          <h1 className="text-7xl mb-6">{rankIcon}</h1>
+      
+    <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
 
+    {accuracy >= 80 && (
+      <Confetti
+        recycle={false}
+        numberOfPieces={accuracy >= 90 ? 400 : 200}
+      />
+    )}
+
+    <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/20 rounded-3xl p-10 max-w-lg w-full text-center shadow-2xl">
           <h2 className="text-3xl font-black mb-6 bg-gradient-to-r from-yellow-500 to-yellow-400 bg-clip-text text-transparent">
             BATTLE COMPLETE
           </h2>
