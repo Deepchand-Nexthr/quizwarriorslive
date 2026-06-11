@@ -69,16 +69,16 @@ export default function Home() {
                   </div>
 
                  <div className="text-yellow-700 font-mono text-sm mb-2">
-  SEASON 1 • EPISODE 001
+  SEASON 1 • STAFFING
 </div>
 
 <h2 className="text-2xl md:text-3xl font-black text-white mb-2">
-  INDIA CHALLENGE
+  US STAFFING CHALLENGE
 </h2>
 
                   <p className="text-zinc-500 text-sm md:text-base mb-6">
-                    Test your knowledge of India through fast-paced questions and
-                    discover fascinating facts.
+                    Master US Staffing, visas, recruiting, Boolean search, LinkedIn,
+W2/C2C/1099 and become a Staffing Warrior.
                   </p>
 
                   {/* Stats Grid */}
@@ -97,7 +97,7 @@ export default function Home() {
                   </div>
 
                   <Link
-                    href="/q/india-001"
+                    href="/q/staffing-001"
                     className="inline-flex items-center justify-between w-full px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl text-black font-black group-hover:shadow-lg transition-all"
                   >
                     <span>ENTER THE BATTLE</span>
@@ -162,7 +162,7 @@ export default function Home() {
 
                 {/* CTA Button - Bigger */}
                 <Link
-                  href="/q/india-001"
+                  href="/q/staffing-001"
                   className="group relative inline-flex items-center gap-3 px-10 py-5 md:px-12 md:py-5 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full font-black text-black text-lg md:text-xl uppercase tracking-wider overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -191,10 +191,9 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {/* Card 1 - Countries */}
-              <Link
-                href="/q/india-001"
-                className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-8 min-h-[280px] lg:h-[400px] flex flex-col transition-all duration-300 hover:border-yellow-500/50 hover:shadow-xl hover:shadow-yellow-500/10 lg:hover:-translate-y-2 active:scale-95 lg:active:scale-100 overflow-hidden"
-              >
+             <div
+  className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-8 min-h-[280px] lg:h-[400px] flex flex-col opacity-60 cursor-not-allowed overflow-hidden"
+>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-2xl group-hover:bg-yellow-500/10 transition-all"></div>
                 <div className="text-7xl mb-4 relative z-10 group-hover:scale-110 transition-transform">
                   🌍
@@ -210,13 +209,12 @@ export default function Home() {
                 <div className="text-yellow-500 font-black text-lg inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
                   ENTER REALM →
                 </div>
-              </Link>
+            </div>
 
               {/* Card 2 - Technology */}
-              <Link
-                href="/q/india-001"
-                className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-8 min-h-[280px] lg:h-[400px] flex flex-col transition-all duration-300 hover:border-yellow-500/50 hover:shadow-xl hover:shadow-yellow-500/10 lg:hover:-translate-y-2 active:scale-95 lg:active:scale-100 overflow-hidden"
-              >
+              <div
+  className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-8 min-h-[280px] lg:h-[400px] flex flex-col opacity-60 cursor-not-allowed overflow-hidden"
+>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-2xl group-hover:bg-yellow-500/10 transition-all"></div>
                 <div className="text-7xl mb-4 relative z-10 group-hover:scale-110 transition-transform">
                   💻
@@ -232,11 +230,11 @@ export default function Home() {
                 <div className="text-yellow-500 font-black text-lg inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
                   ENTER REALM →
                 </div>
-              </Link>
+              </div>
 
               {/* Card 3 - Careers */}
               <Link
-                href="/q/india-001"
+                href="/q/staffing-001"
                 className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-8 min-h-[280px] lg:h-[400px] flex flex-col transition-all duration-300 hover:border-yellow-500/50 hover:shadow-xl hover:shadow-yellow-500/10 lg:hover:-translate-y-2 active:scale-95 lg:active:scale-100 overflow-hidden"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-2xl group-hover:bg-yellow-500/10 transition-all"></div>
@@ -244,15 +242,15 @@ export default function Home() {
                   💼
                 </div>
                 <h3 className="text-3xl md:text-4xl font-black text-white mb-4 relative z-10">
-                  CAREERS
+                  STAFFING
                 </h3>
                 <div className="space-y-2 text-zinc-400 font-semibold tracking-wide flex-1 relative z-10">
-                  <div>💼 JOBS</div>
-                  <div>🎤 INTERVIEWS</div>
-                  <div>🤝 RECRUITING</div>
+                  <div>🛂 VISAS</div>
+<div>🔍 BOOLEAN</div>
+<div>🤝 RECRUITING</div>
                 </div>
                 <div className="text-yellow-500 font-black text-lg inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
-                  ENTER REALM →
+                  ENTER BATTLE →
                 </div>
               </Link>
             </div>

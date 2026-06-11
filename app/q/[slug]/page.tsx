@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Confetti from "react-confetti";
-import { quizData } from "@/data/quizzes/staffing-001";
+import { quizData } from "@/data/careers/staffing/staffing-001";
 
 export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
