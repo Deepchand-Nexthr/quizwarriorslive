@@ -15,9 +15,11 @@ export default function Home() {
           <div className="flex items-center justify-between">
             {/* Left Brand */}
             <Link href="/" className="group flex items-center gap-3">
-              <div className="text-3xl md:text-4xl transform group-hover:rotate-12 transition-transform duration-300">
-                ⚔️
-              </div>
+              <img
+  src="/logo.png"
+  alt="QuizWarriors Logo"
+  className="h-12 w-auto md:h-16 transition-transform duration-300 group-hover:scale-105"
+/>
               <div>
                 <div className="font-black text-xl md:text-2xl tracking-tight bg-gradient-to-r from-white to-yellow-500 bg-clip-text text-transparent">
                   QuizWarriors
@@ -58,71 +60,159 @@ export default function Home() {
         <section className="relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20 lg:py-28">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-              {/* Left Column - Battle Card with Sticky */}
-              <div className="relative group lg:sticky lg:top-28">
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-purple-600/20 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-                <div className="relative bg-gradient-to-br from-zinc-900/90 to-black/90 backdrop-blur-xl border border-yellow-500/30 rounded-3xl p-6 md:p-8 shadow-2xl">
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-yellow-500 text-xs font-mono font-bold">
-                      🔥 TODAY'S BATTLE
-                    </span>
+              {/* Left Column - Today's Challenges Panel */}
+              <div className="relative lg:sticky lg:top-28">
+                <div className="bg-gradient-to-br from-zinc-900/50 to-black/50 backdrop-blur-sm rounded-3xl p-6 md:p-8 border border-zinc-800">
+                  <div className="mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-500/10 border border-yellow-500/30 rounded-full text-yellow-500 text-xs font-mono font-bold mb-3">
+                      🔥 TODAY'S CHALLENGES
+                    </div>
+                    <p className="text-zinc-400 text-sm">
+                      Choose your battle. Complete one today.
+                    </p>
                   </div>
-<div className="mt-4 flex gap-3 flex-wrap">
-  <Link
-    href="/q/staffing-001"
-    className="px-4 py-2 bg-yellow-500 text-black rounded-full font-bold"
-  >
-    💼 Staffing
-  </Link>
 
-  <Link
-    href="/q/ramayan-001"
-    className="px-4 py-2 bg-orange-600 text-white rounded-full font-bold"
-  >
-    🏹 Ramayan
-  </Link>
-</div>
-                 <div className="text-yellow-700 font-mono text-sm mb-2">
-  SEASON 1 • STAFFING
-</div>
-
-<h2 className="text-2xl md:text-3xl font-black text-white mb-2">
-  US STAFFING CHALLENGE
-</h2>
-
-                  <p className="text-zinc-500 text-sm md:text-base mb-6">
-                    Master US Staffing, visas, recruiting, Boolean search, LinkedIn,
-W2/C2C/1099 and become a Staffing Warrior.
-                  </p>
-
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-3 gap-4 mb-6">
-                    {[
-                      { icon: "❓", value: "10", label: "Questions" },
-                      { icon: "⏱️", value: "20", label: "Seconds" },
-                      { icon: "🏆", value: "+100", label: "XP" },
-                    ].map((stat) => (
-                      <div key={stat.label} className="text-center p-3 bg-zinc-900/50 rounded-xl">
-                        <div className="text-2xl mb-1">{stat.icon}</div>
-                        <div className="text-white font-black text-lg">{stat.value}</div>
-                        <div className="text-zinc-500 text-xs font-mono">{stat.label}</div>
+                  <div className="space-y-3">
+                    {/* Challenge 1 - RAMAYAN (Featured - Most Beautiful) */}
+                    <Link
+                      href="/q/ramayan-001"
+                      className="group relative block bg-gradient-to-br from-orange-950/90 via-amber-950/80 to-orange-900/90 border border-orange-500/40 rounded-2xl p-5 transition-all duration-300 hover:border-orange-400/70 hover:shadow-xl hover:shadow-orange-500/30 hover:-translate-y-1 overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-amber-500/10 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/20 rounded-full blur-2xl group-hover:bg-orange-500/30 transition-all"></div>
+                      <div className="absolute top-3 right-3 z-20">
+                        <span className="text-xs font-black text-orange-300 bg-orange-500/20 px-2 py-1 rounded-full">
+                          ⭐ FEATURED
+                        </span>
                       </div>
-                    ))}
+                      <div className="relative z-10 flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center gap-3">
+                          <span className="text-3xl">🏹</span>
+                          <div>
+                            <h3 className="font-black text-white text-lg group-hover:text-orange-300 transition-colors">
+                              RAMAYAN CHALLENGE
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="text-orange-300 text-xs font-mono">15 Questions</span>
+                              <span className="w-1 h-1 bg-orange-500 rounded-full"></span>
+                              <span className="text-orange-300 text-xs font-mono">+150 XP</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-orange-400 group-hover:translate-x-1 transition-transform">
+                          →
+                        </div>
+                      </div>
+                    </Link>
+
+                    {/* Challenge 2 - STAFFING */}
+                    <Link
+                      href="/q/staffing-001"
+                      className="group relative block bg-gradient-to-br from-yellow-950/50 to-amber-950/50 border border-yellow-500/30 rounded-2xl p-3 transition-all duration-300 hover:border-yellow-500/60 hover:shadow-xl hover:shadow-yellow-500/20 hover:-translate-y-1 overflow-hidden"
+                    >
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/20 rounded-full blur-2xl group-hover:bg-yellow-500/30 transition-all"></div>
+                      <div className="relative z-10 flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl">💼</span>
+                          <div>
+                            <h3 className="font-black text-white text-base group-hover:text-yellow-300 transition-colors">
+                              STAFFING CHALLENGE
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="text-yellow-300 text-xs font-mono">15 Questions</span>
+                              <span className="w-1 h-1 bg-yellow-500 rounded-full"></span>
+                              <span className="text-yellow-300 text-xs font-mono">+150 XP</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-yellow-400 group-hover:translate-x-1 transition-transform">
+                          →
+                        </div>
+                      </div>
+                    </Link>
+
+                    {/* Challenge 3 - SALESFORCE */}
+                    <Link
+                      href="/q/salesforceadmin-001"
+                      className="group relative block bg-gradient-to-br from-cyan-950/50 to-blue-950/50 border border-cyan-500/30 rounded-2xl p-3 transition-all duration-300 hover:border-cyan-500/60 hover:shadow-xl hover:shadow-cyan-500/20 hover:-translate-y-1 overflow-hidden"
+                    >
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 rounded-full blur-2xl group-hover:bg-cyan-500/30 transition-all"></div>
+                      <div className="relative z-10 flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl">⚡</span>
+                          <div>
+                            <h3 className="font-black text-white text-base group-hover:text-cyan-300 transition-colors">
+                              SALESFORCE CHALLENGE
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="text-cyan-300 text-xs font-mono">15 Questions</span>
+                              <span className="w-1 h-1 bg-cyan-500 rounded-full"></span>
+                              <span className="text-cyan-300 text-xs font-mono">+150 XP</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="text-cyan-400 group-hover:translate-x-1 transition-transform">
+                          →
+                        </div>
+                      </div>
+                    </Link>
+
+                    {/* Challenge 4 - PMP (Disabled - Locked) */}
+                    <div className="relative block bg-gradient-to-br from-purple-950/30 to-pink-950/30 border border-purple-500/20 rounded-2xl p-3 opacity-60 cursor-not-allowed overflow-hidden">
+                      <div className="relative z-10 flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl opacity-50">📋</span>
+                          <div>
+                            <h3 className="font-black text-white text-base opacity-50">
+                              PMP CHALLENGE
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="bg-zinc-800 px-2 py-0.5 rounded-full text-zinc-400 text-[10px] font-bold">
+                                SOON
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Challenge 5 - BUSINESS ANALYST (Disabled - Locked) */}
+                    <div className="relative block bg-gradient-to-br from-emerald-950/30 to-green-950/30 border border-emerald-500/20 rounded-2xl p-3 opacity-60 cursor-not-allowed overflow-hidden">
+                      <div className="relative z-10 flex items-center justify-between flex-wrap gap-3">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl opacity-50">📊</span>
+                          <div>
+                            <h3 className="font-black text-white text-base opacity-50">
+                              BUSINESS ANALYST CHALLENGE
+                            </h3>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="bg-zinc-800 px-2 py-0.5 rounded-full text-zinc-400 text-[10px] font-bold">
+                                SOON
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <Link
-                    href="/q/staffing-001"
-                    className="inline-flex items-center justify-between w-full px-6 py-3 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-xl text-black font-black group-hover:shadow-lg transition-all"
-                  >
-                    <span>ENTER THE BATTLE</span>
-                    <span className="text-xl group-hover:translate-x-1 transition-transform">
-                      →
-                    </span>
-                  </Link>
+                  {/* Daily Streak Indicator - Future Ready */}
+                  <div className="mt-6 pt-4 border-t border-zinc-800">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="text-yellow-500 text-sm">🔥</span>
+                        <span className="text-zinc-400 text-xs font-mono">DAILY STREAK</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span className="text-yellow-500 text-sm">7</span>
+                        <span className="text-zinc-500 text-xs">days</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Right Column - Hero Text */}
+              {/* Right Column - Hero Text (Unchanged) */}
               <div className="space-y-6 md:space-y-8">
                 {/* Badge */}
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-full backdrop-blur-sm animate-pulse">
@@ -155,7 +245,7 @@ W2/C2C/1099 and become a Staffing Warrior.
                   <div className="flex items-center gap-2">
                     <span className="text-yellow-500 text-lg">⚔️</span>
                     <span className="text-white text-xs md:text-sm font-mono font-bold tracking-wide">
-                      10 QUESTIONS
+                      15 QUESTIONS
                     </span>
                   </div>
                   <div className="w-1 h-1 bg-yellow-500/50 rounded-full"></div>
@@ -174,15 +264,15 @@ W2/C2C/1099 and become a Staffing Warrior.
                   </div>
                 </div>
 
-                {/* CTA Button - Bigger */}
+                {/* CTA Button - Updated */}
                 <Link
-                  href="/q/staffing-001"
+                  href="/q/ramayan-001"
                   className="group relative inline-flex items-center gap-3 px-10 py-5 md:px-12 md:py-5 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full font-black text-black text-lg md:text-xl uppercase tracking-wider overflow-hidden transition-all hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/50"
                 >
                   <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span className="relative flex items-center gap-2">
                     <span className="text-xl md:text-2xl">⚔️</span>
-                    <span>ENTER THE ARENA</span>
+                    <span>START TODAY'S BATTLE</span>
                   </span>
                 </Link>
               </div>
@@ -190,7 +280,7 @@ W2/C2C/1099 and become a Staffing Warrior.
           </div>
         </section>
 
-        {/* Arena Section */}
+        {/* Arena Section - Unchanged */}
         <section className="py-16 md:py-24 bg-black relative">
           <div className="max-w-7xl mx-auto px-4 md:px-8">
             <div className="text-center mb-12 md:mb-16">
@@ -203,77 +293,110 @@ W2/C2C/1099 and become a Staffing Warrior.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {/* Card 1 - Countries */}
-             <div
-  className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-8 min-h-[280px] lg:h-[400px] flex flex-col opacity-60 cursor-not-allowed overflow-hidden"
->
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+              {/* Card 1 - CAREER PATH */}
+              <Link
+                href="/q/staffing-001"
+                className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-6 min-h-[340px] flex flex-col transition-all duration-300 hover:border-yellow-500/50 hover:shadow-xl hover:shadow-yellow-500/10 lg:hover:-translate-y-2 active:scale-95 lg:active:scale-100 overflow-hidden"
+              >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-2xl group-hover:bg-yellow-500/10 transition-all"></div>
-                <div className="text-7xl mb-4 relative z-10 group-hover:scale-110 transition-transform">
-                  🌍
+                <div className="text-6xl mb-4 relative z-10 group-hover:scale-110 transition-transform">
+                  💼
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-white mb-4 relative z-10">
-                  COUNTRIES
+                <h3 className="text-2xl md:text-3xl font-black text-white mb-3 relative z-10">
+                  CAREER PATH
                 </h3>
                 <div className="space-y-2 text-zinc-400 font-semibold tracking-wide flex-1 relative z-10">
-                  <div>🇮🇳 INDIA</div>
-                  <div>🚩 FLAGS</div>
-                  <div>🏛 HISTORY</div>
+                  <div>💼 Staffing</div>
+                  <div>📋 PMP</div>
+                  <div>📊 Business Analyst</div>
                 </div>
-                <div className="text-yellow-500 font-black text-lg inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
-                  ENTER REALM →
+                <div className="text-yellow-500 font-black text-base inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
+                  EXPLORE CAREERS → 
                 </div>
-            </div>
+              </Link>
 
-              {/* Card 2 - Technology */}
-              <div
-  className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-8 min-h-[280px] lg:h-[400px] flex flex-col opacity-60 cursor-not-allowed overflow-hidden"
->
-                <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-2xl group-hover:bg-yellow-500/10 transition-all"></div>
-                <div className="text-7xl mb-4 relative z-10 group-hover:scale-110 transition-transform">
+              {/* Card 2 - TECH HUB */}
+              <Link
+                href="/q/salesforceadmin-001"
+                className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-6 min-h-[340px] flex flex-col transition-all duration-300 hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/10 lg:hover:-translate-y-2 active:scale-95 lg:active:scale-100 overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/5 rounded-full blur-2xl group-hover:bg-cyan-500/10 transition-all"></div>
+                <div className="text-6xl mb-4 relative z-10 group-hover:scale-110 transition-transform">
                   💻
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-white mb-4 relative z-10">
-                  TECHNOLOGY
+                <h3 className="text-2xl md:text-3xl font-black text-white mb-3 relative z-10">
+                  TECH HUB
                 </h3>
                 <div className="space-y-2 text-zinc-400 font-semibold tracking-wide flex-1 relative z-10">
+                  <div>⚡ Salesforce</div>
                   <div>🤖 AI</div>
-                  <div>☁️ CLOUD</div>
-                  <div>⚡ SALESFORCE</div>
+                  <div>💻 Developer</div>
                 </div>
-                <div className="text-yellow-500 font-black text-lg inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
-                  ENTER REALM →
+                <div className="text-cyan-400 font-black text-base inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
+                  ENTER TECH HUB → 
+                </div>
+              </Link>
+
+              {/* Card 3 - COUNTRIES (Disabled) */}
+              <div className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-6 min-h-[340px] flex flex-col opacity-70 cursor-not-allowed overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl"></div>
+                <div className="text-6xl mb-4 relative z-10 opacity-50">
+                  🌍
+                </div>
+                <h3 className="text-2xl md:text-3xl font-black text-white mb-3 relative z-10 opacity-50">
+                  COUNTRIES
+                </h3>
+                <div className="space-y-2 text-zinc-400 font-semibold tracking-wide flex-1 relative z-10 opacity-50">
+                  <div>🇮🇳 India</div>
+                  <div>🚩 Flags</div>
+                  <div>🏛 History</div>
+                </div>
+                <div className="text-zinc-500 font-black text-base inline-flex items-center gap-2 relative z-10 mt-4">
+                  COMING SOON 🔜
                 </div>
               </div>
 
-              {/* Card 3 - Careers */}
+              {/* Card 4 - SANATAN DHARMA */}
               <Link
-                href="/q/staffing-001"
-                className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-8 min-h-[280px] lg:h-[400px] flex flex-col transition-all duration-300 hover:border-yellow-500/50 hover:shadow-xl hover:shadow-yellow-500/10 lg:hover:-translate-y-2 active:scale-95 lg:active:scale-100 overflow-hidden"
+                href="/q/ramayan-001"
+                className="group relative bg-gradient-to-br from-orange-950/90 via-amber-950/80 to-orange-900/90 border border-orange-500/40 rounded-2xl p-6 md:p-6 min-h-[340px] flex flex-col transition-all duration-300 hover:border-orange-400/70 hover:shadow-2xl hover:shadow-orange-500/40 lg:hover:-translate-y-3 active:scale-95 lg:active:scale-100 overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-2xl group-hover:bg-yellow-500/10 transition-all"></div>
-                <div className="text-7xl mb-4 relative z-10 group-hover:scale-110 transition-transform">
-                  💼
+                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 via-amber-500/10 to-yellow-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl group-hover:bg-orange-500/40 transition-all"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-amber-500/20 rounded-full blur-2xl group-hover:bg-amber-500/30 transition-all"></div>
+                <div className="text-7xl mb-4 relative z-10 group-hover:scale-110 transition-transform duration-300 group-hover:rotate-3">
+                  🕉️
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-white mb-4 relative z-10">
-                  STAFFING
+                <h3 className="text-2xl md:text-3xl font-black mb-3 relative z-10 bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent">
+                  SANATAN DHARMA
                 </h3>
-                <div className="space-y-2 text-zinc-400 font-semibold tracking-wide flex-1 relative z-10">
-                  <div>🛂 VISAS</div>
-<div>🔍 BOOLEAN</div>
-<div>🤝 RECRUITING</div>
+                <div className="space-y-2 text-orange-200/80 font-semibold tracking-wide flex-1 relative z-10">
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400">🏹</span> Ramayan
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400">📖</span> Bhagavad Gita
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400">⚔️</span> Mahabharat
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-amber-400">🕉</span> Ancient Wisdom
+                  </div>
                 </div>
-                <div className="text-yellow-500 font-black text-lg inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
-                  🏹 BEGIN CHALLENGE →
+                <div className="relative z-10 mt-4">
+                  <div className="text-orange-400 font-black text-base inline-flex items-center gap-2 group-hover:gap-3 transition-all group-hover:text-yellow-400">
+                    BEGIN JOURNEY → 
+                  </div>
+                  <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-0 group-hover:opacity-100 transition-all"></div>
                 </div>
               </Link>
             </div>
           </div>
         </section>
 
-
-
-        {/* Why QuizWarriors Section */}
+        {/* Why QuizWarriors Section - Unchanged */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-black via-zinc-950 to-black">
           <div className="max-w-7xl mx-auto px-4 md:px-8">
             <div className="text-center mb-12 md:mb-16">
@@ -318,7 +441,7 @@ W2/C2C/1099 and become a Staffing Warrior.
         </section>
       </main>
 
-      {/* Footer */}
+      {/* Footer - Unchanged */}
       <footer className="border-t border-yellow-500/20 bg-black py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
           <div className="flex justify-center gap-2 mb-6">

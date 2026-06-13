@@ -243,8 +243,8 @@ export default function QuizPage() {
           <div className="flex items-center justify-between mb-6">
             <div className="bg-yellow-500/10 border border-yellow-500/30 px-4 py-2 rounded-full">
               <span className="text-yellow-400 text-xs md:text-sm font-black tracking-wider">
-                ⚔️ STAFFING WARRIOR • SEASON 1
-              </span>
+  {quizData.title.toUpperCase()} • SEASON 1
+</span>
             </div>
 
             <div className="bg-zinc-800 px-4 py-2 rounded-full">
