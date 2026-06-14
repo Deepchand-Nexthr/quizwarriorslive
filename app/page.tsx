@@ -33,13 +33,19 @@ export default function Home() {
             {/* Right Badges */}
             <div className="flex items-center gap-3">
               {/* XP Badge - Desktop */}
-              <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 border border-yellow-500/30 rounded-full backdrop-blur-sm">
-                <span className="text-yellow-500 text-lg">🏆</span>
-                <div>
-                  <div className="text-[10px] text-yellow-500/70 font-mono">WARRIOR XP</div>
-                  <div className="text-white font-black text-sm">0</div>
-                </div>
-              </div>
+  <div className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-yellow-500/10 to-yellow-500/5 border border-yellow-500/30 rounded-full backdrop-blur-sm">
+  <span className="text-yellow-500 text-lg">🏆</span>
+
+  <div>
+    <div className="text-[10px] text-yellow-500/70 font-mono">
+      BETA
+    </div>
+
+    <div className="text-white font-black text-sm">
+      Launch
+    </div>
+  </div>
+</div>
 
               {/* Guest Badge */}
               <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-zinc-900/80 border border-zinc-700 rounded-full backdrop-blur-sm">
@@ -204,8 +210,13 @@ export default function Home() {
                         <span className="text-zinc-400 text-xs font-mono">DAILY STREAK</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <span className="text-yellow-500 text-sm">7</span>
-                        <span className="text-zinc-500 text-xs">days</span>
+                        <span className="text-yellow-500 text-sm">
+  Soon
+</span>
+
+<span className="text-zinc-500 text-xs">
+  feature
+</span>
                       </div>
                     </div>
                   </div>
@@ -272,7 +283,7 @@ export default function Home() {
                   <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span className="relative flex items-center gap-2">
                     <span className="text-xl md:text-2xl">⚔️</span>
-                    <span>START TODAY'S BATTLE</span>
+                    <span>CHOOSE YOUR CHALLENGE</span>
                   </span>
                 </Link>
               </div>
@@ -285,8 +296,8 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 md:px-8">
             <div className="text-center mb-12 md:mb-16">
               <h2 className="text-4xl md:text-6xl font-black mb-4">
-                <span className="text-white">⚔️ CHOOSE YOUR</span>
-                <span className="text-yellow-500 block md:inline md:ml-3">ARENA</span>
+                <span className="text-white">⚔️ EXPLORE QUIZ</span>
+                <span className="text-yellow-500 block md:inline md:ml-3">CATEGORIES</span>
               </h2>
               <p className="text-zinc-400 text-base md:text-lg max-w-2xl mx-auto">
                 Master different realms of knowledge and prove your worth.
@@ -330,8 +341,8 @@ export default function Home() {
                 </h3>
                 <div className="space-y-2 text-zinc-400 font-semibold tracking-wide flex-1 relative z-10">
                   <div>⚡ Salesforce</div>
-                  <div>🤖 AI</div>
-                  <div>💻 Developer</div>
+<div>🛡️ Cyber Security</div>
+<div>💻 Developer</div>
                 </div>
                 <div className="text-cyan-400 font-black text-base inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
                   ENTER TECH HUB → 
@@ -456,9 +467,14 @@ export default function Home() {
           <div className="text-yellow-500/50 text-xs font-mono">
             © 2026 QuizWarriors — KNOWLEDGE IS WAR.
           </div>
-          <p className="text-zinc-500 text-xs mt-3">
-            Sharpen Your Mind. Conquer Every Day.
-          </p>
+         <p className="text-zinc-500 text-xs mt-3">
+  Sharpen Your Mind. Conquer Every Day.
+</p>
+
+<p className="text-zinc-600 text-xs mt-2">
+  New quizzes added regularly ⚔️
+</p>
+        
         </div>
       </footer>
     </div>

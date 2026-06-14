@@ -45,14 +45,14 @@ export default function QuizPage() {
   }, []);
 
   useEffect(() => {
-    if (!quizComplete) return;
+  if (!quizComplete) return;
 
-    if (score >= Math.ceil(quizData.questionsPerAttempt / 2)) {
-      victorySound.current?.play();
-    } else {
-      tauntSound.current?.play();
-    }
-  }, [quizComplete, score]);
+  if (score > quizData.questionsPerAttempt / 2) {
+    victorySound.current?.play();
+  } else {
+    tauntSound.current?.play();
+  }
+}, [quizComplete, score]);
 
   useEffect(() => {
     if (showFact || quizComplete) return;
@@ -134,70 +134,53 @@ export default function QuizPage() {
     }
 
     return (
-      <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
-        {accuracy >= 80 && (
-          <Confetti
-            recycle={false}
-            numberOfPieces={accuracy >= 90 ? 400 : 200}
-          />
-        )}
-
-        <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/20 rounded-3xl p-10 max-w-lg w-full text-center shadow-2xl">
-          <h2 className="text-3xl font-black mb-6 bg-gradient-to-r from-yellow-500 to-yellow-400 bg-clip-text text-transparent">
-            BATTLE COMPLETE
-          </h2>
-
-          <div className="space-y-4 mb-8">
-            <div className="flex justify-between items-center border-b border-zinc-800 pb-3">
-              <span className="text-zinc-400">Score</span>
-              <span className="text-2xl font-black text-yellow-500">
-                {score}/{quizData.questionsPerAttempt}
-              </span>
-            </div>
-
-            <div className="flex justify-between items-center border-b border-zinc-800 pb-3">
-              <span className="text-zinc-400">Accuracy</span>
-              <span className="text-2xl font-black text-yellow-500">{accuracy}%</span>
-            </div>
-
-            <div className="flex justify-between items-center border-b border-zinc-800 pb-3">
-              <span className="text-zinc-400">XP Earned</span>
-              <span className="text-2xl font-black text-yellow-500">+{score * 10}</span>
-            </div>
-          </div>
-
-          <p className="text-yellow-400 font-bold text-lg mb-6">
-            Rank:{" "}
-            {accuracy >= 90
-              ? "👑 Legend"
-              : accuracy >= 70
-              ? "⚔️ Elite"
-              : accuracy >= 50
-              ? "🛡️ Warrior"
-              : "🎖️ Recruit"}
-          </p>
-
-          <div className="pt-4 mb-8">
-            <p className="text-yellow-400 font-black text-xl">{message}</p>
-          </div>
-
-          <button
-            onClick={restartQuiz}
-            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-black py-4 rounded-2xl hover:scale-105 transition-all mb-4 shadow-lg"
-          >
-            ⚔️ PLAY AGAIN
-          </button>
-
-          <Link
-            href="/"
-            className="block w-full bg-zinc-800 text-white font-bold py-4 rounded-2xl text-center hover:bg-zinc-700 transition-all"
-          >
-            BACK TO ARENA
-          </Link>
+  <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
+{/* Parent div */}
+<div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/20 rounded-3xl p-10 max-w-lg w-full text-center shadow-2xl">
+      {accuracy >= 80 && (
+  <Confetti
+    recycle={false}
+    numberOfPieces={accuracy >= 90 ? 400 : 200}
+  />
+)}
+      
+      <div className="mb-6">
+        <h2 className="text-3xl font-black bg-gradient-to-r from-yellow-500 to-yellow-400 bg-clip-text text-transparent">
+          BATTLE COMPLETE
+        </h2>
+        <p className="text-zinc-400 mt-2 text-sm font-mono">
+          {quizData.title.toUpperCase()} • SEASON 1
+        </p>
+      </div>
+      
+      <div className="space-y-4 mb-8">
+        <div className="bg-zinc-800/50 rounded-xl p-4">
+          <p className="text-zinc-400 text-sm mb-1">Quiz Completed</p>
+          <p className="text-yellow-400 font-black text-xl">{quizData.title}</p>
         </div>
-      </main>
-    );
-  }
+        {/* ... rest of stats ... */}
+      </div>
+      
+      <p className="text-yellow-400 font-bold text-lg mb-6">
+        Rank: {accuracy >= 90 ? "👑 Legend" : accuracy >= 70 ? "⚔️ Elite" : accuracy >= 50 ? "🛡️ Warrior" : "🎖️ Recruit"}
+      </p>
+      
+      <div className="pt-4 mb-8">
+        <p className="text-yellow-400 font-black text-xl">{message}</p>
+        <p className="text-zinc-400 text-sm mt-2">Thank you for playing QuizWarriors ⚔️</p>
+      </div>
+      
+      <button onClick={restartQuiz} className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-black font-black py-4 rounded-2xl hover:scale-105 transition-all mb-4 shadow-lg">
+        ⚔️ PLAY AGAIN
+      </button>
+      
+      <Link href="/" className="block w-full bg-zinc-800 text-white font-bold py-4 rounded-2xl text-center hover:bg-zinc-700 transition-all">
+        BACK TO ARENA
+      </Link>
+    </div>
+  </main>
+);
+  }  
 
   return (
     <main className="min-h-screen bg-black text-white px-6 py-12">
