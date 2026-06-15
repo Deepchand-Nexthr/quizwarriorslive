@@ -1,4 +1,8 @@
-[
+export const quizData = {
+  title: "PMP Challenge",
+  questionsPerAttempt: 15,
+  timerPerQuestion: 20,
+  questions: [
   {
     "text": "A Business Analyst is preparing for an initial requirements elicitation session with busy corporate stakeholders. Which approach is most effective to maximize their time?",
     "options": [
@@ -5500,3 +5504,4 @@
     "fact": "Structured UAT connects development work directly with operational strategies, helping organizations launch updates smoothly and reduce business risks."
   }
 ]
+};

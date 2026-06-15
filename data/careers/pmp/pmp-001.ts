@@ -1,4 +1,9 @@
-[
+export const quizData = {
+  title: "PMP Challenge",
+  questionsPerAttempt: 15,
+  timerPerQuestion: 20,
+  questions: [
+    // 15+ [
   {
     "correct": 1,
     "fact": "The Project Charter is signed by a sponsor or initiator external to the project team to ensure project objectives align with organizational strategy.",
@@ -4565,3 +4570,5 @@
     "text": "What is the purpose of an 'Audit Right' clause?"
   }
 ]
+
+};

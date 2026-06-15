@@ -1,4 +1,9 @@
-[
+export const quizData = {
+  title: "PMP Challenge",
+  questionsPerAttempt: 15,
+  timerPerQuestion: 20,
+  questions: [
+    // 15+ [[
   {
     "text": "An organization implements strict file encryption to ensure that unauthorized individuals cannot read sensitive customer records. Which component of the CIA Triad does this control directly protect?",
     "options": [
@@ -4950,3 +4955,4 @@
     "fact": "A risk-based approach forces the security team to think like the business; you protect what makes the company run first."
   }
 ]
+};

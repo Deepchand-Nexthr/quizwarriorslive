@@ -1,4 +1,8 @@
-[
+export const quizData = {
+  title: "PMP Challenge",
+  questionsPerAttempt: 15,
+  timerPerQuestion: 20,
+  questions: [
   {
     "text": "A developer needs to store a user's age which will always be a whole number. Which data type is most appropriate?",
     "options": [
@@ -5478,3 +5482,4 @@
     "fact": "Enforcing the Definition of Done protects product quality, preventing teams from shipping technical debt into production."
   }
 ]
+};
