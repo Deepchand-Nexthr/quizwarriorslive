@@ -153,11 +153,28 @@ export default function QuizPage() {
         </p>
       </div>
       
-      <div className="space-y-4 mb-8">
-        <div className="bg-zinc-800/50 rounded-xl p-4">
-          <p className="text-zinc-400 text-sm mb-1">Quiz Completed</p>
-          <p className="text-yellow-400 font-black text-xl">{quizData.title}</p>
-        </div>
+     <div className="space-y-4 mb-8">
+  <div className="bg-zinc-800/50 rounded-xl p-4">
+    <p className="text-zinc-400 text-sm">Score</p>
+    <p className="text-yellow-400 font-black text-2xl">
+      {score}/{quizData.questionsPerAttempt}
+    </p>
+  </div>
+
+  <div className="bg-zinc-800/50 rounded-xl p-4">
+    <p className="text-zinc-400 text-sm">Accuracy</p>
+    <p className="text-yellow-400 font-black text-2xl">
+      {accuracy}%
+    </p>
+  </div>
+
+  <div className="bg-zinc-800/50 rounded-xl p-4">
+    <p className="text-zinc-400 text-sm">XP Earned</p>
+    <p className="text-yellow-400 font-black text-2xl">
+      +{score * 10}
+    </p>
+  </div>
+
         {/* ... rest of stats ... */}
       </div>
       
