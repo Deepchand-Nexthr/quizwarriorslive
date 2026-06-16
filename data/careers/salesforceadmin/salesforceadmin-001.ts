@@ -1,7 +1,7 @@
 export const quizData = {
   slug: "salesforceadmin-001",
   title: "Salesforce Admin Challenge",
-  questionsPerAttempt: 10,
+  questionsPerAttempt: 15,
   timerPerQuestion: 20,
   questions: [
   {

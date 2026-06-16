@@ -1,7 +1,7 @@
 export const quizData = {
   slug: "staffing-001",
   title: "US Staffing Basics",
-  questionsPerAttempt: 10,
+  questionsPerAttempt: 15,
   timerPerQuestion: 20,
   questions: [
 {

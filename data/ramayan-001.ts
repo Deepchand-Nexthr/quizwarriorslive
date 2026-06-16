@@ -1,7 +1,7 @@
 export const quizData = {
 slug: "ramayan-001",
 title: "Ramayan Challenge",
-questionsPerAttempt: 10,
+questionsPerAttempt: 15,
 timerPerQuestion: 20,
 questions: [
 {
