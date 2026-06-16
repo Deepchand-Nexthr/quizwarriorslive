@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "QuizWarriors | Knowledge is War",
   description:
     "Play fun quizzes on US Staffing, Technology, Countries and more. Learn in 2 minutes.",
@@ -30,23 +30,35 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-  <Script
-    src="https://www.googletagmanager.com/gtag/js?id=G-PHB2WRR0JS"
-    strategy="afterInteractive"
-  />
 
-  <Script id="google-analytics" strategy="afterInteractive">
-    {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PHB2WRR0JS"
+          strategy="afterInteractive"
+        />
 
-      gtag('config', 'G-PHB2WRR0JS');
-    `}
-  </Script>
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-  {children}
-</body>
+            gtag('config', 'G-PHB2WRR0JS');
+          `}
+        </Script>
+
+        {/* Google AdSense Verification */}
+        <Script
+          id="google-adsense"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5189235812319135"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
+        {children}
+
+      </body>
     </html>
   );
 }
