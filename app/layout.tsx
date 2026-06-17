@@ -14,51 +14,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://quizwarriors.com"),
+
   title: "QuizWarriors | Knowledge is War",
+
   description:
     "Play fun quizzes on US Staffing, Technology, Countries and more. Learn in 2 minutes.",
+
+  openGraph: {
+    title: "QuizWarriors | Knowledge is War",
+    description:
+      "Become a Warrior of Knowledge. Think critically. Question everything.",
+    url: "https://quizwarriors.com",
+    siteName: "QuizWarriors",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "QuizWarriors - Knowledge is War",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "QuizWarriors | Knowledge is War",
+    description:
+      "Become a Warrior of Knowledge. Think critically. Question everything.",
+    images: ["/og-image.png"],
+  },
+
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-PHB2WRR0JS"
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-PHB2WRR0JS');
-          `}
-        </Script>
-
-        {/* Google AdSense Verification */}
-        <Script
-          id="google-adsense"
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5189235812319135"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-
-        {children}
-
-      </body>
-    </html>
-  );
-}
