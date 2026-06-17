@@ -29,6 +29,17 @@ export const metadata: Metadata = {
     "Technology Quiz",
     "Geography Quiz",
     "Country Quiz",
+    "Salesforce Quiz",
+    "Business Analyst Quiz",
+    "Cybersecurity Quiz",
+    "Recruitment Quiz",
+    "Interview Practice",
+    "E-Learning Quiz",
+    "Learning Quiz", // ✅ Added comma
+    "Kahoot alternative",
+    "Online Practice Test",
+    "Salesforce Admin Quiz",
+    "US Recruiter Quiz",
     "Learn Through Play",
     "Warrior of Knowledge",
   ],
@@ -42,41 +53,38 @@ export const metadata: Metadata = {
 
   creator: "QuizWarriors",
   publisher: "QuizWarriors",
+  verification: {
+    google: "google3bf16eff2ee1e374",
+  },
+
+  alternates: {
+  canonical: "https://quizwarriors.com",
+},
 
   openGraph: {
     title: "QuizWarriors | Knowledge is War",
-
     description:
       "Battle through knowledge with quizzes on US Staffing, Technology, Geography, Countries and more. Think critically. Question everything.",
-
     url: "https://quizwarriors.com",
-
     siteName: "QuizWarriors",
-
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "QuizWarriors - Knowledge is War",
       },
     ],
-
     locale: "en_US",
-
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
-
-    title: "QuizWarriors | Knowledge is War",
-
+    title: "QuizWarriors | Free Quizzes for US Staffing, Salesforce & Tech", // ✅ Fixed
     description:
       "Battle through knowledge with quizzes on US Staffing, Technology, Geography, Countries and more.",
-
-    images: ["/og-image.png"],
-
+    images: ["/og-image.jpg"],
     creator: "@QuizWarriors",
   },
 
@@ -113,9 +121,7 @@ export default function RootLayout({
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
-
             gtag('js', new Date());
-
             gtag('config', 'G-PHB2WRR0JS');
           `}
         </Script>
