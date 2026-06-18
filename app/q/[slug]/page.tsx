@@ -370,7 +370,7 @@ export default function QuizPage() {
 
       {showFact && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center p-6 z-50">
-          <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/30 rounded-[32px] p-8 max-w-md w-full shadow-2xl animate-in fade-in zoom-in duration-300">
+          <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-500/30 rounded-[32px] p-8 max-w-xl w-full shadow-2xl animate-in fade-in zoom-in duration-300">
             <div className="text-center mb-6">
               {isCorrect ? (
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-green-500/20 rounded-full mb-4">
@@ -398,7 +398,7 @@ export default function QuizPage() {
               </p>
             </div>
 
-            <div className="bg-zinc-800/50 rounded-xl p-4 mb-4">
+            <div className="bg-zinc-800/50 rounded-xl p-3 mb-3">
               <p className="text-zinc-400 text-sm mb-2">Your Answer</p>
               <p
                 className={`font-bold text-lg ${
@@ -413,16 +413,16 @@ export default function QuizPage() {
               </p>
             </div>
 
-            <div className="bg-zinc-800/50 rounded-xl p-4 mb-6">
+            <div className="bg-zinc-800/50 rounded-xl p-3 mb-4">
               <p className="text-green-400 text-sm mb-2">Correct Answer</p>
               <p className="font-bold text-white text-lg">
                 {question.options[question.correct]}
               </p>
             </div>
 
-            <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4 mb-6">
+            <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-6 mb-6 min-h-[180px]">
               <p className="text-yellow-400 text-sm mb-2">💡 DID YOU KNOW?</p>
-              <p className="text-zinc-300 text-sm leading-relaxed">
+              <p className="text-zinc-200 text-base leading-7">
                 {question.fact}
               </p>
             </div>

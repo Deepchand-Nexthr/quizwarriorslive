@@ -2,7 +2,7 @@ export const quizData = {
   slug: "salesforceadmin-001",
   title: "Salesforce Admin Challenge",
   questionsPerAttempt: 15,
-  timerPerQuestion: 20,
+  timerPerQuestion: 30,
   questions: [
   {
     "text": "An administrator needs to allow users to easily switch between the Sales and Service specific views in Salesforce, each containing different collections of objects and tabs. Which metadata component groups these tabs into a single visible workspace?",

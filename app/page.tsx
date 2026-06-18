@@ -53,7 +53,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - FIXED */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-20 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -141,51 +141,75 @@ export default function Home() {
                   </Link>
 
                   {/* Challenge 4 - PMP (Disabled) */}
-                  <div className="relative block bg-gradient-to-br from-purple-950/30 to-pink-950/30 border border-purple-500/20 rounded-2xl p-3 opacity-60 cursor-not-allowed overflow-hidden">
-                    <div className="relative z-10 flex items-center justify-between flex-wrap gap-3">
+                  <Link
+                    href="/q/pmp-001"
+                    className="group relative block bg-gradient-to-br from-purple-950/50 to-pink-950/50 border border-purple-500/30 rounded-2xl p-3 transition-all duration-300 hover:border-purple-500/60 hover:shadow-xl hover:shadow-purple-500/20 hover:-translate-y-1 overflow-hidden"
+                  >
+                    <div className="relative z-10 flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl opacity-50">📋</span>
+                        <span className="text-2xl">📋</span>
                         <div>
-                          <h3 className="font-black text-white text-base opacity-50">PMP CHALLENGE</h3>
+                          <h3 className="font-black text-white text-base">
+                            PMP CHALLENGE
+                          </h3>
                           <div className="flex items-center gap-2 mt-1">
-                            <span className="bg-zinc-800 px-2 py-0.5 rounded-full text-zinc-400 text-[10px] font-bold">SOON</span>
+                            <span className="text-purple-300 text-xs font-mono">
+                              15 Questions
+                            </span>
+                            <span className="w-1 h-1 bg-purple-500 rounded-full"></span>
+                            <span className="text-purple-300 text-xs font-mono">
+                              +150 XP
+                            </span>
                           </div>
                         </div>
                       </div>
+                      <div className="text-purple-400">→</div>
                     </div>
-                  </div>
+                  </Link>
 
                   {/* Challenge 5 - BUSINESS ANALYST (Disabled) */}
-                  <div className="relative block bg-gradient-to-br from-emerald-950/30 to-green-950/30 border border-emerald-500/20 rounded-2xl p-3 opacity-60 cursor-not-allowed overflow-hidden">
-                    <div className="relative z-10 flex items-center justify-between flex-wrap gap-3">
+                  <Link
+                    href="/q/ba-001"
+                    className="group relative block bg-gradient-to-br from-emerald-950/50 to-green-950/50 border border-emerald-500/30 rounded-2xl p-3 transition-all duration-300 hover:border-emerald-500/60 hover:shadow-xl hover:shadow-emerald-500/20 hover:-translate-y-1 overflow-hidden"
+                  >
+                    <div className="relative z-10 flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <span className="text-2xl opacity-50">📊</span>
+                        <span className="text-2xl">📊</span>
                         <div>
-                          <h3 className="font-black text-white text-base opacity-50">BUSINESS ANALYST CHALLENGE</h3>
+                          <h3 className="font-black text-white text-base">
+                            BUSINESS ANALYST CHALLENGE
+                          </h3>
                           <div className="flex items-center gap-2 mt-1">
-                            <span className="bg-zinc-800 px-2 py-0.5 rounded-full text-zinc-400 text-[10px] font-bold">SOON</span>
+                            <span className="text-emerald-300 text-xs font-mono">
+                              15 Questions
+                            </span>
+                            <span className="w-1 h-1 bg-emerald-500 rounded-full"></span>
+                            <span className="text-emerald-300 text-xs font-mono">
+                              +150 XP
+                            </span>
                           </div>
                         </div>
                       </div>
+                      <div className="text-emerald-400">→</div>
                     </div>
-                  </div>
-                </div>
+                  </Link>
 
-                {/* Daily Streak Indicator */}
-                <div className="mt-6 pt-4 border-t border-zinc-800">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="text-yellow-500 text-sm">🔥</span>
-                      <span className="text-zinc-400 text-xs font-mono">DAILY STREAK</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <span className="text-yellow-500 text-sm">Soon</span>
-                      <span className="text-zinc-500 text-xs">feature</span>
+                  {/* Daily Streak Indicator */}
+                  <div className="mt-6 pt-4 border-t border-zinc-800">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="text-yellow-500 text-sm">🔥</span>
+                        <span className="text-zinc-400 text-xs font-mono">DAILY STREAK</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span className="text-yellow-500 text-sm">Soon</span>
+                        <span className="text-zinc-500 text-xs">feature</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> {/* Close left column */}
 
             {/* Right Column - Hero Text */}
             <div className="space-y-6 md:space-y-8">
@@ -235,8 +259,8 @@ export default function Home() {
                 </span>
               </Link>
             </div>
-          </div>
-        </div>
+          </div> {/* Close grid */}
+        </div> {/* Close container */}
       </section>
 
       {/* Arena Section - Categories */}
@@ -285,23 +309,23 @@ export default function Home() {
               <div className="text-cyan-400 font-black text-base inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">ENTER TECH HUB →</div>
             </Link>
 
-           {/* Card 3 - COUNTRIES */}
-<Link
-  href="/countries"
-  className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-6 min-h-[340px] flex flex-col transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/10 lg:hover:-translate-y-2 active:scale-95 lg:active:scale-100 overflow-hidden"
->
-  <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-all"></div>
-  <div className="text-6xl mb-4 relative z-10 group-hover:scale-110 transition-transform">🌍</div>
-  <h3 className="text-2xl md:text-3xl font-black text-white mb-3 relative z-10">COUNTRIES</h3>
-  <div className="space-y-2 text-zinc-400 font-semibold tracking-wide flex-1 relative z-10">
-    <div>🇮🇳 India</div>
-    <div>🚩 Flags</div>
-    <div>🏛 History</div>
-  </div>
-  <div className="text-emerald-400 font-black text-base inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
-    EXPLORE COUNTRIES →
-  </div>
-</Link>
+            {/* Card 3 - COUNTRIES */}
+            <Link
+              href="/countries"
+              className="group relative bg-gradient-to-br from-zinc-900 to-black border border-zinc-800 rounded-2xl p-6 md:p-6 min-h-[340px] flex flex-col transition-all duration-300 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/10 lg:hover:-translate-y-2 active:scale-95 lg:active:scale-100 overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-all"></div>
+              <div className="text-6xl mb-4 relative z-10 group-hover:scale-110 transition-transform">🌍</div>
+              <h3 className="text-2xl md:text-3xl font-black text-white mb-3 relative z-10">COUNTRIES</h3>
+              <div className="space-y-2 text-zinc-400 font-semibold tracking-wide flex-1 relative z-10">
+                <div>🇮🇳 India</div>
+                <div>🚩 Flags</div>
+                <div>🏛 History</div>
+              </div>
+              <div className="text-emerald-400 font-black text-base inline-flex items-center gap-2 group-hover:gap-3 transition-all relative z-10 mt-4">
+                EXPLORE COUNTRIES →
+              </div>
+            </Link>
 
             {/* Card 4 - SANATAN DHARMA - FIXED */}
             <Link

@@ -1,7 +1,7 @@
 export const quizData = {
   title: "PMP Challenge",
   questionsPerAttempt: 15,
-  timerPerQuestion: 20,
+  timerPerQuestion: 30,
   questions: [
     // 15+ [
   {

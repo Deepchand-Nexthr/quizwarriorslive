@@ -1,7 +1,7 @@
 export const quizData = {
   title: "PMP Challenge",
   questionsPerAttempt: 15,
-  timerPerQuestion: 20,
+  timerPerQuestion: 30,
   questions: [
   {
     "text": "A Business Analyst is preparing for an initial requirements elicitation session with busy corporate stakeholders. Which approach is most effective to maximize their time?",

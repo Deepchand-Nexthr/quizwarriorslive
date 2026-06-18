@@ -1,7 +1,7 @@
 export const quizData = {
   title: "PMP Challenge",
   questionsPerAttempt: 15,
-  timerPerQuestion: 20,
+  timerPerQuestion: 30,
   questions: [
   {
     "text": "A developer needs to store a user's age which will always be a whole number. Which data type is most appropriate?",
