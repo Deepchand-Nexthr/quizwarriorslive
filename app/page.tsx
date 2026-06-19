@@ -424,6 +424,35 @@ export default function Home() {
               <a href="https://linkedin.com/company/quizwarriors" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-blue-400 transition">💼 LinkedIn</a>
             </div>
           </div>
+          <div className="mt-8 flex justify-center gap-6 flex-wrap text-sm">
+  <Link
+    href="/about"
+    className="text-zinc-400 hover:text-yellow-500 transition"
+  >
+    About
+  </Link>
+
+  <Link
+    href="/contact"
+    className="text-zinc-400 hover:text-yellow-500 transition"
+  >
+    Contact
+  </Link>
+
+  <Link
+    href="/privacy"
+    className="text-zinc-400 hover:text-yellow-500 transition"
+  >
+    Privacy Policy
+  </Link>
+
+  <Link
+    href="/terms"
+    className="text-zinc-400 hover:text-yellow-500 transition"
+  >
+    Terms of Service
+  </Link>
+</div>
         </div>
       </footer>
     </div>
