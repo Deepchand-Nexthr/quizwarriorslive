@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-gray-200;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-[rgba(20,20,20,0.7)] backdrop-blur-[12px] border border-yellow-400/15 shadow-[0_8px_32px_rgba(0,0,0,0.6)];
+  }
+  
+  .glass-light {
+    @apply bg-[rgba(30,30,30,0.6)] backdrop-blur-[8px] border border-yellow-400/8;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 0.2s ease-out;
+  }
+}

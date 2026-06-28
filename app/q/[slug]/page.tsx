@@ -5,6 +5,7 @@ import Link from "next/link";
 import Confetti from "react-confetti";
 import { quizRegistry } from "@/data/registry";
 import { useParams } from "next/navigation";
+import { saveQuizResult, getAuthenticatedUser } from "@/lib/supabase/quiz";
 
 export default function QuizPage() {
   const params = useParams();
@@ -122,7 +123,25 @@ export default function QuizPage() {
     }, 800);
   };
 
-  const nextQuestion = () => {
+  const finishQuiz = async () => {
+      console.log("finishQuiz called");
+    try {
+      const userId = await getAuthenticatedUser();
+      await saveQuizResult(
+        userId,
+        params.slug as string,
+        quizData.title,
+        score,
+        quizData.questionsPerAttempt
+      );
+    } catch (error) {
+      console.error('Failed to save quiz result:', error);
+    } finally {
+      setQuizComplete(true);
+    }
+  };
+
+  const nextQuestion = async () => {
     stopTickSound();
     if (currentQuestion < quizData.questionsPerAttempt - 1) {
       setCurrentQuestion((prev) => prev + 1);
@@ -130,7 +149,7 @@ export default function QuizPage() {
       setSelectedAnswer("");
       setTimeLeft(quizData.timerPerQuestion);
     } else {
-      setQuizComplete(true);
+       await finishQuiz();
     }
   };
 
@@ -148,6 +167,7 @@ export default function QuizPage() {
     setIsCorrect(false);
     setTimeLeft(quizData.timerPerQuestion);
     setQuizComplete(false);
+    endTimeRef.current = 0;
   };
 
   if (quizComplete) {

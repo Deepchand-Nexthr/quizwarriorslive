@@ -39,19 +39,30 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Guest Badge */}
-              <div className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-zinc-900/80 border border-zinc-700 rounded-full backdrop-blur-sm">
-                <span className="text-zinc-400 text-sm md:text-base">👤</span>
-                <div className="hidden md:block">
-                  <div className="text-[10px] text-zinc-500 font-mono">GUEST</div>
-                  <div className="text-white text-sm font-medium">Warrior</div>
-                </div>
-                <span className="md:hidden text-white text-sm font-medium">Guest</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+              {/* Profile Link */}
+           <Link
+  href="/profile"
+  className="flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-zinc-900/80 border border-zinc-700 rounded-full backdrop-blur-sm hover:border-yellow-500 transition"
+>
+  <span className="text-zinc-400 text-sm md:text-base">👤</span>
+
+  <div className="hidden md:block">
+    <div className="text-[10px] text-zinc-500 font-mono">
+      PROFILE
+    </div>
+    <div className="text-white text-sm font-medium">
+      Warrior
+    </div>
+  </div>
+
+  <span className="md:hidden text-white text-sm font-medium">
+    Profile
+  </span>
+</Link>
+</div>
+</div>
+</div>
+</nav>
 
       {/* Hero Section - FIXED */}
       <section className="relative overflow-hidden">
